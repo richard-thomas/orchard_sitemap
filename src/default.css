@@ -10,6 +10,31 @@ th, td {
     text-align: left;
 }
 
+.info-page {
+    display: inline-block;
+    position: fixed;
+    left: 40px;
+    width: calc(100% - 42px);
+    height: calc(100% - 40px);
+    border: 1px solid rgb(255,184,55);
+    border-radius: 10px;
+    transition: all 0.35s ease;
+    transform: translateY(0);
+    z-index: 11;
+}
+.show-info {
+    transform: translateY(-100%);
+}
+
+/* Allow full width info screen on narrow screens, e.g. phones */
+@media only screen and (max-width: 600px) {
+    .info-page {
+        left: 0;
+        width: 100%;
+        height: calc(100% - 40px);
+    }
+}
+
 #map {
     background-color: #f8f8f8;
     width: 100%;
@@ -22,7 +47,8 @@ th, td {
     bottom: 0;
 }
 
-.ol-zoom, .geolocate-control, .legend-toggle, .gcd-gl-control .ol-control {
+.info-page-switcher, .ol-zoom, .geolocate-control, .legend-toggle,
+.gcd-gl-control .ol-control {
     background-color: rgba(255,255,255,.4);
 }
 
@@ -44,12 +70,45 @@ th, td {
     background-color: rgba(255,184,55,.77);
 }
 
+/* "Information page switcher" button */
+.info-page-switcher, .info-page-switcher:hover {
+    top: 0.5em;
+    left: .5em;
+    background-color: rgb(56 140 227);
+    border-radius: 1.2em;
+    padding: 1px;
+}
+.info-page-switcher:hover {
+    background-color: rgb(13 46 58 / 100%);
+}
+.info-page-switcher button, .info-page-switcher button:hover,
+.info-page-switcher button:focus  {
+    background-color: #68c0ff;
+    border-radius: 0.7em;
+    height: 1.4em;
+    width: 1.4em;
+}
+.info-page-switcher button:hover {
+    background-color: #1ba0ff;
+}
+
+.ol-zoom {
+    top: 4.2em;
+}
+
 /* "Align North" button (only appears when map is rotated) */
 .ol-rotate {
     left: 0.5em;
     right: auto;
-    top: 5.0em;
+    top: 11em;
 }
+
+/* "Pan to my location" button */
+.geolocate-control {
+    top: 15em;
+    left: .5em;
+}
+
 .ol-scale-line {
     left: auto;
     right: 4px;
@@ -91,6 +150,7 @@ th, td {
     z-index: 2;
     user-select: none;
     pointer-events: all;
+    border: solid 1px rgb(255,184,55);
 }
 .legend-box:hover {
     background-color: rgba(241, 241, 241, 0.9);
@@ -172,10 +232,4 @@ th, td {
 
 .ol-control.buttonActive {
     background-color: #70f370;
-}
-
-/* "Pan to my location" button */
-.geolocate-control {
-    top: 7.8em;
-    left: .5em;
 }

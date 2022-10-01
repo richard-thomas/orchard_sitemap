@@ -32,6 +32,11 @@ import ol_control_ScaleLine from 'ol/control/ScaleLine';
 import proj4 from 'proj4';
 import {register as ol_proj_proj4_register} from 'ol/proj/proj4';
 
+// Page to display in "info" iFrame when (i) button pressed
+// TBD: restore real page
+//const infoPageURL = 'https://richard-thomas.github.io/orchard_sitemap/info.html';
+const infoPageURL = 'iframe_contents.html'; // DEBUG only
+
 document.title = mapConfig.pageTitle;
 
 // Make projections defined in proj4 available in OpenLayers.
@@ -140,6 +145,51 @@ gpkgStyledPromise
     .catch(error => fatalError(error));
 
 /**
+ * OpenLayers control to switch to information page
+ */
+ class infoPageControl extends ol_control_Control {
+    /**
+     * @param {Object} [opt_options] Control options.
+     */
+    constructor(opt_options) {
+        const options = opt_options || {};
+
+        const button = document.createElement('button');
+        button.title = 'Show information page';
+        button.className += ' fa fa-info';
+
+        const element = document.createElement('div');
+        element.className = 'info-page-switcher ol-unselectable ol-control';
+        element.appendChild(button);
+
+        super({
+            element: element,
+            target: options.target,
+        });
+
+        button.addEventListener('click', infoPageToggle, false);
+    }
+}
+map.addControl(new infoPageControl);
+
+/**
+ * Show/Hide Information Page
+ *  (called either from info button (i) or when page open from click on map)
+ * @param {event} event - mouse click or touch event
+ */
+function infoPageToggle(event) {
+    const mapDiv = document.getElementById('map');
+    const infoPageClasslist = document.getElementById('info').classList;
+    if (infoPageClasslist.contains('show-info')) {
+        mapDiv.removeEventListener('click', infoPageToggle);
+    } else {
+        mapDiv.addEventListener('click', infoPageToggle);
+    }
+    infoPageClasslist.toggle('show-info');
+    event.stopPropagation();
+}
+
+/**
  * Example OpenLayers toggle control to show/hide Legend box
  */
  class legendToggleControl extends ol_control_Control {
@@ -172,6 +222,22 @@ gpkgStyledPromise
     }
 }
 map.addControl(new legendToggleControl);
+
+// Load "info" iFrame last (after a 1s delay) as will not be initially visible
+const infoPageIframe = document.getElementById('info');
+setTimeout(() => {
+    infoPageIframe.setAttribute('src', infoPageURL);
+    infoPageIframe.addEventListener( "load", function() {
+        // Hide "View the map" button + paragraph as this will force a reload
+        // (Want user to switch back to map with (i) button)
+        infoPageIframe.contentWindow.document.getElementsByTagName('button')[0]
+            .parentNode.parentNode.style.display = "none";
+
+        // Prevent pull to refresh on touch devices (except in Safari)
+        infoPageIframe.contentWindow.document.body.style.overscrollBehavior
+            = 'contain';
+    });
+}, 1000);
 
 //-----------------------------------------------------------------------------
 // Function definitions only from here
