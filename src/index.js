@@ -33,9 +33,8 @@ import proj4 from 'proj4';
 import {register as ol_proj_proj4_register} from 'ol/proj/proj4';
 
 // Page to display in "info" iFrame when (i) button pressed
-// TBD: restore real page
-//const infoPageURL = 'https://richard-thomas.github.io/orchard_sitemap/info.html';
-const infoPageURL = 'iframe_contents.html'; // DEBUG only
+const infoPageURL = 'https://richard-thomas.github.io/orchard_sitemap/info.html';
+//const infoPageURL = 'iframe_contents.html'; // DEBUG only
 
 document.title = mapConfig.pageTitle;
 
