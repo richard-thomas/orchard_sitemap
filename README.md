@@ -8,7 +8,7 @@ The [OGC GeoPackage](https://www.geopackage.org/) used in this example is: [mrco
 
 A version of the source QGIS map document used to generate the above GeoPackage can be loaded into QGIS from [orchard_site-local-gpkg.qgz](dist/orchard_site-local-gpkg.qgz). Note that this version has had its data sources redirected to the GeoPackage in the local folder (rather than the collection of original data sources).
 
-The ol-sld-styler module requires a separate "layer configuration" object which is defined in this example in file [mapconfig.js](https://github.com/richard-thomas/orchard_site/tree/main/dist/mapconfig.js). It includes some user-defined function hooks for modifying SLD-imported styling where desired styling was not possible due to QGIS export or SLD limitations.
+The ol-sld-styler module requires a separate "layer configuration" object which is defined in this example in file [mapconfig.js](https://github.com/richard-thomas/orchard_sitemap/tree/main/dist/mapconfig.js). It includes some user-defined function hooks for modifying SLD-imported styling where desired styling was not possible due to QGIS export or SLD limitations.
 
 By using OGC GeoPackages as its primary data/styling sources, this web map can also be downloaded and used as an _offline_ map viewer for mobile phones or tablets which have poor (or non-existent) network connectivity. When a network connection is available, data and stying updates could then be done by downloading just 1 file.
 
