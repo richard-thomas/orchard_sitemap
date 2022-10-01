@@ -1,10 +1,10 @@
-# MRCO Orchard Sitemap (QGIS to OpenLayers demo)
+# Orchard Sitemap (QGIS to OpenLayers demo)
 
-The web map (as hosted directly on GitHub) can be viewed via its [information page](https://richard-thomas.github.io/orchard_sitemap/info) or [directly](https://richard-thomas.github.io/orchard_sitemap/dist).
+This web map (as hosted directly on GitHub) can be viewed via its [information page](https://richard-thomas.github.io/orchard_sitemap/info) or [directly](https://richard-thomas.github.io/orchard_sitemap/dist). It maps a small area of approximately 20m x 40m, but includes a large number of features with more detail being revealed as the user zooms progressively further in.
 
 It is a demo of the [ol-sld-styler](https://www.npmjs.com/package/ol-sld-styler) (OpenLayers SLD Styler) and [ol-load-geopackage](https://www.npmjs.com/package/ol-load-geopackage) (OpenLayers OGC GeoPackage Loader) JavaScript NPM modules. Data and styling for the web map has been generated primarily in QGIS and exported as an OGC GeoPackage using the [Package Layers](https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/database.html#package-layers) Processing Toolbox operation. This allows the web map to be quickly rebuilt from subsequent updated QGIS exports.
 
-The [OGC GeoPackage](https://www.geopackage.org/) used in this example is: [mrco_site_interactive.gpkg](https://github.com/richard-thomas/orchard_sitemap/tree/main/dist/mrco_site_interactive.gpkg.gpkg). The Geopackage contains a collections of vector data layers and the associated SLD styling combined into a single "layer_styles" table as XML strings.
+The [OGC GeoPackage](https://www.geopackage.org/) used in this example is: [mrco_site_interactive.gpkg](https://github.com/richard-thomas/orchard_sitemap/tree/main/dist/mrco_site_interactive.gpkg). The Geopackage contains a collections of vector data layers and the associated SLD styling combined into a single "layer_styles" table as XML strings.
 
 A version of the source QGIS map document used to generate the above GeoPackage can be loaded into QGIS from [orchard_site-local-gpkg.qgz](dist/orchard_site-local-gpkg.qgz). Note that this version has had its data sources redirected to the GeoPackage in the local folder (rather than the collection of original data sources).
 
