@@ -14,11 +14,11 @@ Table of Contents:
 
 This map is primarily designed for members of the orchard to explore the variety of plants and habitats across the orchard site, zooming in on areas of interest. If viewed on site (using a mobile phone or tablet), GPS can be used to display on the map where you are within the orchard (see 'geolocation' below). The first thing you will want to do is to turn the map key display off (see 'toggle map key' below) to see more of the map!
 
-More information can be found on the [MRCO main website](http://mrco.wikidot.com/):
+More information can be found on the [MRCO main website](https://mrco.wikidot.com/):
 
-- [About](http://mrco.wikidot.com/main:about) - an introduction to the orchard itself
-- [Table of Fruit Trees](http://mrco.wikidot.com/main:table-of-fruit-trees) - including links for each variety on the Royal Horticultural Society (RHS) website
-- [Orchard Contents](http://mrco.wikidot.com/main:whatwehave) - more information
+- [About](https://mrco.wikidot.com/main:about) - an introduction to the orchard itself
+- [Table of Fruit Trees](https://mrco.wikidot.com/main:table-of-fruit-trees) - including links for each variety on the Royal Horticultural Society (RHS) website
+- [Orchard Contents](https://mrco.wikidot.com/main:whatwehave) - more information
 
 ## Web Map Instructions
 
